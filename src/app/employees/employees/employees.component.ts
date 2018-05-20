@@ -38,7 +38,7 @@ export class EmployeesComponent implements OnInit {
         name : '',
         birthday : new Date('05/22/1969'),
         age : 35,
-        project : '',
+        project : 0,
         company : '',
         favoriteColor: ''
       }
