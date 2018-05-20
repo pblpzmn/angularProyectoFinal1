@@ -8,7 +8,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatDialog } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     MatInputModule
   ],
   declarations: [EmployeesComponent, EmployeeDialogComponent],
-  providers: [AuthenticationGuard],
+  providers: [AuthenticationGuard, MatDialog],
   entryComponents: [EmployeeDialogComponent],
   
 

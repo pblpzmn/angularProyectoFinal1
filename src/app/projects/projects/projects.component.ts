@@ -37,7 +37,7 @@ export class ProjectsComponent implements OnInit {
         id : this.nextId,
         name : '',
         teamSize: 2, 
-        clientName: "Cliente"; 
+        clientName: "Cliente" 
       }
     } else {
       project = this.projects.filter(x => x.id === id)[0];
@@ -48,20 +48,20 @@ export class ProjectsComponent implements OnInit {
       width: '250px',
       data: { action: action, project: project}
     });
-/*
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if (action === 'edit') {
-        this.projects[id - 1] = result.data.employee;
-        this.http.post('api/employees', result.data.employee).subscribe(console.log);
+        this.projects[id - 1] = result.data.project;
+        this.http.post('api/projects', result.data.project).subscribe(console.log);
       }  
       if (action === 'add') {
         console.log("pusshing");
-        this.projects.push(result.data.employee);
+        this.projects.push(result.data.project);
       }
 //      this.changeDetectorRefs.detectChanges();
     });
-    */
+
   }
 
 }
