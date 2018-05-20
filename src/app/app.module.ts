@@ -26,8 +26,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 const appRoutes: Routes = [
   { path: 'authentication',  component: AuthenticationComponent, },
   { path: 'home', canActivate: [AuthenticationGuard], component: HomeComponent },
-  { path: 'employees', canActivate: [AuthenticationGuard], component: EmployeesComponent },
-  { path: 'projects', canActivate: [AuthenticationGuard], component: ProjectsComponent },
+  { path: 'employees', canActivate: [AuthenticationGuard], loadChildren: './employees/employees.module#EmployeesComponent', },
+  { path: 'projects', canActivate: [AuthenticationGuard], loadChildren: './projects/projects/projects.component#ProjectsComponent' },
   { path: '', redirectTo: '/authentication', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];

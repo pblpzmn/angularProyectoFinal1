@@ -3,12 +3,10 @@ import { EditComponent } from './edit/edit.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-/*
-const routes: Routes = [
-  { path: 'employees', loadChildren: './employees/employees.module#EmployeesComponent' },
-];*/
+
 const routes: Routes = [{
   path: 'employees', component: EmployeesComponent,
+  
   children: [
     {
       path: 'edit/:id',
