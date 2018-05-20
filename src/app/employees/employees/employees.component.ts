@@ -1,4 +1,3 @@
-import { EmployeeDialogComponent } from './../dialog/dialog.component';
 import { Employee } from './../employee';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,37 +10,37 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-
+  nextId;
   employees: Employee[];
   tableColumnsToDisplay = ['id', 'name', 'company', 'age', 'birthday', 'favoriteColor', 'project', 'edit' ,'delete'];
-  constructor(private http: HttpClient, public dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) { 
+  constructor() { 
     console.log('EmployeesComponent');
-    http.get<Employee[]>('api/employees').subscribe( data => {this.employees = data;});
+
   }
 
   ngOnInit() {
   }
-  delete(id){
+  /*delete(id){
     this.employees = this.employees.filter(x => x.id !== id );
     console.log('delete');
     console.log(id);
   
-  }
-
+  }*/
+/*
   openDialog(action, id): void {
     console.log(action);
     console.log(id);
     let employee: Employee;
-    if (action==='add'){
+    if (action === 'add'){
       employee = {
-        id : 5,
+        id : this.nextId,
         name : '',
-        birthday : new Date('05/22/1969'),
-        age : 35,
+        birthday : new Date(),
+        age : 0,
         project : 0,
         company : '',
         favoriteColor: ''
-      }
+      };
     } else {
       employee = this.employees.filter(x => x.id === id)[0];
     }
@@ -55,14 +54,15 @@ export class EmployeesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if (action === 'edit') {
-        this.employees[id - 1] = result.data.employee;
-        this.http.post('api/employees', result.data.employee).subscribe(console.log);
+        this.employees[id] = result.data.employee;
       }  
       if (action === 'add') {
         console.log("pusshing");
+        this.nextId += 1;
         this.employees.push(result.data.employee);
+        this.http.post('api/employees', result.data.employee).subscribe(console.log);
       }
       this.changeDetectorRefs.detectChanges();
     });
-  }
+  }*/
 }

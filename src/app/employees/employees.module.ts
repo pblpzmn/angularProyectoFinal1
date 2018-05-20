@@ -1,4 +1,5 @@
-import { EmployeeDialogComponent } from './dialog/dialog.component';
+import { EmployeeRoutingModule } from './employee.routing';
+import { EditComponent } from './edit/edit.component';
 import { FormsModule } from '@angular/forms';
 import { SharedComponent } from './../shared/shared/shared.component';
 import { AuthenticationGuard } from './../authentication/authentication.guard';
@@ -7,22 +8,22 @@ import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from './employees/employees.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule, MatInputModule, MatDialog } from '@angular/material';
+import { MatFormFieldModule, MatInputModule,  } from '@angular/material';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     MatTableModule,
-    MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    EmployeeRoutingModule
   ],
-  declarations: [EmployeesComponent, EmployeeDialogComponent],
-  providers: [AuthenticationGuard, MatDialog],
-  entryComponents: [EmployeeDialogComponent],
+  declarations: [EmployeesComponent, ListComponent, EditComponent],
+  exports: [EmployeeRoutingModule]
+  
   
 
 })

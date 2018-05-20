@@ -2,17 +2,14 @@ import { InMemoryModelService } from './model.service';
 import { NotFoundModule } from './not-found/not-found.module';
 import { HomeModule } from './home/home.module';
 import { HomeComponent } from './home/home/home.component';
-import { AuthenticationRoutingModule } from './authentication/authentication.routing';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 import { AuthenticateService } from './authentication/authenticate.service';
-
 import { ProjectsModule } from './projects/projects.module';
 import { EmployeesModule } from './employees/employees.module';
 import { AuthenticationComponent } from './authentication/authentication/authentication.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeesComponent } from './employees/employees/employees.component';

@@ -1,8 +1,12 @@
+<h2>Employees</h2>
+<app-my-nav></app-my-nav>
+<br>
 <mat-form-field>
 <input matInput placeholder="Name" [(ngModel)]="employee.name" >
 </mat-form-field>
+<br>
 <mat-form-field>
-<input matInput placeholder="Company" [(ngModel)]="employee.company" >
+<input matInput placeholder="Birthday" [(ngModel)]="employee.birthday">
 </mat-form-field>
 <br>
 <mat-form-field>
@@ -10,8 +14,7 @@
 </mat-form-field>
 <br>
 <mat-form-field>
-    <input matInput placeholder="Favorite Color" [(ngModel)]="employee.favoriteColor">
+<input matInput placeholder="Company" [(ngModel)]="employee.company">
 </mat-form-field>
 <br>
 <button mat-raised-button color="primary"(click)="saveData()">Save</button>
-

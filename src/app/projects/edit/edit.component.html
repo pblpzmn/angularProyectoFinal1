@@ -1,13 +1,15 @@
+<app-my-nav></app-my-nav>
+<h2>Projects</h2>
 <mat-form-field>
 <input matInput placeholder="Name" [(ngModel)]="project.name" >
 </mat-form-field>
+<br>
 <mat-form-field>
-<input matInput placeholder="Company" [(ngModel)]="project.teamSize" >
+<input matInput placeholder="Team Size" [(ngModel)]="project.teamSize" >
 </mat-form-field>
 <br>
 <mat-form-field>
-<input matInput placeholder="Project" [(ngModel)]="project.clientName">
+<input matInput placeholder="client Name" [(ngModel)]="project.clientName">
 </mat-form-field>
 <br>
 <button mat-raised-button color="primary"(click)="saveData()">Save</button>
-
