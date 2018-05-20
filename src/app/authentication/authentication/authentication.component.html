@@ -1,0 +1,30 @@
+<div class="login-box">
+  
+  <h2>Welcome:</h2>
+
+  <mat-form-field>
+    <input matInput placeholder="User" #user>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" #password>
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+  <br>
+  
+  <!--div (show)="wrongLogin">
+      <span  style="color: red">Datos incorretcos, ingrese sus datos nuevamente</span>
+  </div-->
+  
+
+  <button mat-raised-button color="primary"(click)="authenticate(user.value,password.value)">Log in</button>
+
+  <div>
+
+  <br>
+  <br>
+  Log in info<br>
+  user:admin<br>
+  password:admin
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div layout="row" layout-align="center center" style="min-height: 500px;" >
+  <app-my-nav></app-my-nav>
+  <mat-card class="card">
+    <mat-card-content>
+      <a [routerLink]="['/employees']" routerLinkActive="router-link-active"  >
+        <mat-icon>account_box</mat-icon>
+        <mat-card-title>Employees</mat-card-title>
+        <mat-card-subtitle>Management</mat-card-subtitle>
+      </a> 
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-content>
+      <a [routerLink]="['/projects']" routerLinkActive="router-link-active"  >  
+        <mat-icon>folder</mat-icon>
+        <mat-card-title>Projects</mat-card-title>
+        <mat-card-subtitle>Management</mat-card-subtitle>
+      </a> 
+    </mat-card-content>
+  </mat-card>
+</div>
