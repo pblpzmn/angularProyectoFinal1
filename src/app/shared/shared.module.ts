@@ -1,5 +1,4 @@
 import { MyNavComponent } from './my-nav/my-nav.component';
-import { DialogComponent } from './dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NgModule } from '@angular/core';
@@ -12,7 +11,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     LayoutModule,
-    FormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
@@ -20,8 +18,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule 
   ],
-  declarations: [SharedComponent, MyNavComponent, DialogComponent],
-  exports : [MyNavComponent, DialogComponent]
+  declarations: [SharedComponent, MyNavComponent],
+  exports : [MyNavComponent]
 
   
 })

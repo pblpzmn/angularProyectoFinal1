@@ -1,9 +1,9 @@
-import { DialogComponent } from './../../shared/dialog/dialog.component';
+import { EmployeeDialogComponent } from './../dialog/dialog.component';
 import { Employee } from './../employee';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Data } from '@angular/router';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-employees',
@@ -14,7 +14,7 @@ export class EmployeesComponent implements OnInit {
 
   employees: Employee[];
   tableColumnsToDisplay = ['id', 'name', 'company', 'age', 'birthday', 'favoriteColor', 'project', 'edit' ,'delete'];
-  constructor(private http: HttpClient, public dialog: MatDialog) { 
+  constructor(private http: HttpClient, public dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) { 
     console.log('EmployeesComponent');
     http.get<Employee[]>('api/employees').subscribe( data => {this.employees = data;});
   }
@@ -47,7 +47,7 @@ export class EmployeesComponent implements OnInit {
     }
     
     console.log(employee);
-    let dialogRef = this.dialog.open(DialogComponent, {
+    let dialogRef = this.dialog.open(EmployeeDialogComponent, {
       width: '250px',
       data: { action: action, employee: employee}
     });
@@ -56,12 +56,13 @@ export class EmployeesComponent implements OnInit {
       console.log(result);
       if (action === 'edit') {
         this.employees[id - 1] = result.data.employee;
-        //http.get<Employee[]>('api/employees').subscribe( data => {this.employees = data;});
-        this.http.post('api/employees', result.data.employee).subscribe();
+        this.http.post('api/employees', result.data.employee).subscribe(console.log);
       }  
       if (action === 'add') {
+        console.log("pusshing");
         this.employees.push(result.data.employee);
       }
+      this.changeDetectorRefs.detectChanges();
     });
   }
 }

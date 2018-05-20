@@ -1,0 +1,13 @@
+<mat-form-field>
+<input matInput placeholder="Name" [(ngModel)]="project.name" >
+</mat-form-field>
+<mat-form-field>
+<input matInput placeholder="Company" [(ngModel)]="project.teamSize" >
+</mat-form-field>
+<br>
+<mat-form-field>
+<input matInput placeholder="Project" [(ngModel)]="project.clientName">
+</mat-form-field>
+<br>
+<button mat-raised-button color="primary"(click)="saveData()">Save</button>
+
