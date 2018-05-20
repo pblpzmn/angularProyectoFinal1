@@ -10,12 +10,12 @@ import { Project } from '../project';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-
+  nextId: number;
   projects: Project[];
   tableColumnsToDisplay = ['id', 'name', 'teamSize', 'clientName', 'delete'];
   constructor(private http: HttpClient, private dialog: MatDialog) { 
     console.log('ProjectsComponent');
-    http.get<Project[]>('api/projects').subscribe( data => this.projects = data);
+    http.get<Project[]>('api/projects').subscribe( data => {this.projects = data;  this.nextId = data.length; });
   }
 
   ngOnInit() {
@@ -34,9 +34,9 @@ export class ProjectsComponent implements OnInit {
     let project: Project;
     if (action==='add'){
       project = {
-        id : 5,
+        id : this.nextId,
         name : '',
-        teamSize: 2; 
+        teamSize: 2, 
         clientName: "Cliente"; 
       }
     } else {
